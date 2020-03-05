@@ -197,6 +197,7 @@ class TestDbBackup(common.TransactionCase):
         rec_id = self.new_record()
         rec_id.sftp_connection()
         pysftp.Connection.assert_called_once_with(
+            cnopts=pysftp.CnOpts(),
             host=rec_id.sftp_host,
             username=rec_id.sftp_user,
             port=rec_id.sftp_port,
@@ -213,6 +214,7 @@ class TestDbBackup(common.TransactionCase):
         })
         rec_id.sftp_connection()
         pysftp.Connection.assert_called_once_with(
+            cnopts=pysftp.CnOpts(),
             host=rec_id.sftp_host,
             username=rec_id.sftp_user,
             port=rec_id.sftp_port,
